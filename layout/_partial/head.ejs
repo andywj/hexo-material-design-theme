@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#2196F3">
+    <%
+      var title = [];
+      if (page.current > 1) title.push(__('page', page.current));
+      if (page.title) title.push(page.title);
+      if (page.category) title.push(page.category);
+      if (page.tag) title.push(page.tag);
+      if (page.archive){
+        if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
+        else title.push(__('archive_a'));
+      }
+      title.push(config.title);
+  %>
+  <title><%= title.join(' | ') %></title>
+
+    <!-- CSS  -->
+    <link href="<%- config.root %>css/materialize.css" type="text/css" rel="stylesheet">
+    <link href="<%- config.root %>css/style.css" type="text/css" rel="stylesheet" >
+    <link href="<%- config.root %>css/font-awesome.min.css" type="text/css" rel="stylesheet" >
+    <script src="<%- config.root %>js/modernizr.js"></script> <!-- Modernizr -->
+</head>
